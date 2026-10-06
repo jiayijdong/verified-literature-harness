@@ -1,0 +1,23 @@
+{
+  "n_raw": 10258,
+  "n_with_target": 8450,
+  "n_input_fields": 71,
+  "n_taball_features": 77,
+  "n_taball_numeric": 34,
+  "split_sizes": {
+    "train": 5422,
+    "val": 2170,
+    "test": 858
+  },
+  "share_pce_gt20": {
+    "test": 0.655,
+    "train": 0.435,
+    "val": 0.582
+  },
+  "pce_mean": {
+    "test": 20.43,
+    "train": 17.67,
+    "val": 19.39
+  },
+  "text_chars_median": 2068
+}

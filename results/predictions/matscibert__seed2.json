@@ -1,0 +1,21 @@
+{
+  "model": "matscibert",
+  "seed": 2,
+  "input": "text",
+  "hf_id": "m3rg-iitd/matscibert",
+  "max_len": 512,
+  "lr": 5e-05,
+  "epochs": 10,
+  "batch_size": 16,
+  "n_truncated": 3482,
+  "wall_min": 4.08,
+  "gpu_min": 4.08,
+  "best_epoch": 8,
+  "val": {
+    "mae": 2.1451664704967985,
+    "rmse": 3.0771208126137797,
+    "r2": 0.7227541767700039,
+    "mad_mae": 2.136090099014491,
+    "auc": 0.9241851091178361
+  }
+}

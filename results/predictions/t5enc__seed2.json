@@ -1,0 +1,21 @@
+{
+  "model": "t5enc",
+  "seed": 2,
+  "input": "text",
+  "hf_id": "google-t5/t5-base",
+  "max_len": 1024,
+  "lr": 0.0001,
+  "epochs": 10,
+  "batch_size": 16,
+  "n_truncated": 182,
+  "wall_min": 27.38,
+  "gpu_min": 27.38,
+  "best_epoch": 9,
+  "val": {
+    "mae": 2.115027912581842,
+    "rmse": 3.153320186678982,
+    "r2": 0.7088531746882005,
+    "mad_mae": 2.1665287872122865,
+    "auc": 0.9199264048397463
+  }
+}

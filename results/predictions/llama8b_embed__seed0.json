@@ -1,0 +1,18 @@
+{
+  "model": "llama8b_embed",
+  "seed": 0,
+  "input": "text",
+  "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
+  "head": "ridge",
+  "wall_min": 8.16,
+  "gpu_min": 8.16,
+  "layer": 32,
+  "alpha": 316.22776601683796,
+  "val": {
+    "mae": 2.598864633931384,
+    "rmse": 3.519916835572256,
+    "r2": 0.6372221839422133,
+    "mad_mae": 1.7631810439600812,
+    "auc": 0.9051348953530611
+  }
+}

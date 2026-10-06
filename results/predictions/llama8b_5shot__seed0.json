@@ -1,0 +1,18 @@
+{
+  "model": "llama8b_5shot",
+  "seed": 0,
+  "input": "text",
+  "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
+  "shots": 5,
+  "decoding": "greedy",
+  "wall_min": 3.57,
+  "gpu_min": 3.57,
+  "invalid_rate": 0.046620046620046623,
+  "raw_examples": [
+    "Based on the given device recipe, I predict the power conversion efficiency (PCE) of the champion device under a reverse J-V scan to be 22.15%.",
+    "19.50",
+    "22.13",
+    "19.20",
+    "Based on the given device recipe, I predict the power conversion efficiency (PCE) of the champion device under a reverse J-V scan to be 24.12%."
+  ]
+}
