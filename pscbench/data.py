@@ -16,11 +16,10 @@ import pandas as pd
 
 REPO = Path(__file__).resolve().parents[1]
 DATA_DIR = REPO / "data"
-RAW_PATH = DATA_DIR / "raw" / "psc_device_records.parquet"
+RECORDS_PATH = REPO / "dataset" / "psc_device_records.parquet"   # released records, shipped with the code
+RAW_PATH = DATA_DIR / "raw" / "psc_device_records.parquet"         # download target when PSC_DATA_URL is set
 PROC_DIR = DATA_DIR / "processed"
-# Released records (anonymous mirror for review); override with PSC_DATA_URL.
-DATA_URL = os.environ.get("PSC_DATA_URL", "https://huggingface.co/datasets/ANON_HF_NAMESPACE/psc-device-records/"
-                                          "resolve/main/psc_device_records.parquet")
+DATA_URL = os.environ.get("PSC_DATA_URL")                          # optional: read the records from elsewhere
 
 TARGET_FIELD = "JV_measured_reverse_scan_PCE"
 PCE_RANGE = (0.0, 30.0)          # single-junction devices; drops tandem/garbled values
@@ -36,11 +35,14 @@ NUM_RE = re.compile(r"[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?")
 
 
 def load_raw() -> pd.DataFrame:
-    if not RAW_PATH.exists():
-        import urllib.request
-        RAW_PATH.parent.mkdir(parents=True, exist_ok=True)
-        urllib.request.urlretrieve(DATA_URL, RAW_PATH)
-    df = pd.read_parquet(RAW_PATH)
+    path = RECORDS_PATH
+    if DATA_URL:
+        if not RAW_PATH.exists():
+            import urllib.request
+            RAW_PATH.parent.mkdir(parents=True, exist_ok=True)
+            urllib.request.urlretrieve(DATA_URL, RAW_PATH)
+        path = RAW_PATH
+    df = pd.read_parquet(path)
     df = df.astype(object).astype(str)
     df = df.mask(df.isin(["Null", "None", "nan", ""]))
     return df.reset_index(drop=True).rename_axis("row_id").reset_index()

@@ -3,7 +3,7 @@
 Code for the held-out prediction benchmark in *Harnessing Verified Literature for AI Scientists*
 (anonymous submission). Models predict the power conversion efficiency (PCE) of a device from
 the recipe fields of the released device records
-([anonymous dataset mirror](https://huggingface.co/datasets/ANON_HF_NAMESPACE/psc-device-records)),
+(shipped in [`dataset/`](dataset/)),
 training on papers up to 2023 and testing on papers from 2025. The benchmark compares
 tabular models, fine-tuned language models, and prompted LLMs. No literature extraction is
 re-run; everything uses the released records.
@@ -51,7 +51,7 @@ is a gated model on Hugging Face and requires accepting its license.
 ```bash
 export PSC_ENV=/path/to/env           # optional: venv or conda env to activate
 source scripts/env.sh
-python scripts/prepare.py             # downloads the records, writes data/processed/*
+python scripts/prepare.py             # reads dataset/, writes data/processed/*
 python scripts/run_tabular.py --model mean
 python scripts/run_tabular.py --model lgbm18
 python scripts/run_tabular.py --model lgbmall
@@ -70,6 +70,7 @@ to read the records from another location.
 ## Layout
 
 ```
+dataset/              the released device records (Parquet + gzipped JSONL) and their data card
 pscbench/data.py      loading, target, split, leakage exclusions, features, text
 pscbench/metrics.py   MAE / MAD:MAE / R2 / AUC, bootstrap CI, paired bootstrap
 pscbench/io.py        prediction + metadata files shared by every model
