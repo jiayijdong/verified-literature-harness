@@ -14,9 +14,9 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
-from pscbench.data import load_processed, split_masks
-from pscbench.io import PRED_DIR, gpu_timer, save_predictions
-from pscbench.metrics import regression_metrics
+from discovery.data import load_processed, split_masks
+from discovery.io import PRED_DIR, gpu_timer, save_predictions
+from discovery.metrics import regression_metrics
 
 MODELS = {"llama8b": "meta-llama/Llama-3.1-8B-Instruct"}
 SYSTEM = ("You are an expert in perovskite solar cells. Given a device recipe extracted from a "

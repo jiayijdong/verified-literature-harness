@@ -6,9 +6,9 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_curve
 
-from pscbench.data import CLS_THRESHOLD, REPO
-from pscbench.io import PRED_DIR
-from pscbench.metrics import bootstrap_ci, paired_bootstrap_p, regression_metrics
+from discovery.data import CLS_THRESHOLD, REPO
+from discovery.io import PRED_DIR
+from discovery.metrics import bootstrap_ci, paired_bootstrap_p, regression_metrics
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402

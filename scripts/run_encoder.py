@@ -11,9 +11,9 @@ import torch
 from torch import nn
 from transformers import AutoModel, AutoTokenizer, T5EncoderModel, get_linear_schedule_with_warmup
 
-from pscbench.data import load_processed, split_masks
-from pscbench.io import gpu_timer, save_predictions
-from pscbench.metrics import regression_metrics
+from discovery.data import load_processed, split_masks
+from discovery.io import gpu_timer, save_predictions
+from discovery.metrics import regression_metrics
 
 MODELS = {
     "matscibert": dict(hf="m3rg-iitd/matscibert", max_len=512, lr=5e-5),

@@ -1,26 +1,28 @@
-# PSC device records
+# Verified device records
 
-Structured records of perovskite solar cell (PSC) devices extracted from the peer-reviewed
-literature by an LLM multi-agent harness (schema-constrained annotator agent + field-wise judge
-agents). Released with the anonymous submission *Harnessing Verified Literature for AI Scientists*.
+The output of the literature-to-data harness in *Harnessing Verified Literature for AI Scientists*
+(anonymous submission): structured records of perovskite solar cell devices extracted from the
+peer-reviewed literature by a schema-constrained annotator agent and verified field by field by
+independent judge agents. Each category of fields ships with its judged reliability, so that AI
+scientists consuming the records know which fields they can automate on.
 
 ## Files
 
 | File | Format | Size |
 |---|---|---|
-| `psc_device_records.parquet` | Parquet, 10,258 rows × 102 string columns | 3.6 MB |
-| `psc_device_records.jsonl.gz` | gzipped JSON Lines, same rows and columns | 4.2 MB (53 MB uncompressed) |
+| `device_records.parquet` | Parquet, 10,258 rows × 102 string columns | 3.6 MB |
+| `device_records.jsonl.gz` | gzipped JSON Lines, same rows and columns | 4.2 MB (53 MB uncompressed) |
 
 ```python
 import pandas as pd
-df = pd.read_parquet("dataset/psc_device_records.parquet")
+df = pd.read_parquet("dataset/device_records.parquet")
 ```
 
 ## What a record is
 
 One record per paper: the paper's **best-performing device**, as identified by the annotator
-agent from the main text and supporting information. The corpus covers experimental PSC papers
-indexed in Web of Science; publication years are mostly 2021–2025 (2025 up to April), with a few
+agent from the main text and supporting information. The corpus covers experimental perovskite solar cell
+papers indexed in Web of Science; publication years are mostly 2021–2025 (2025 up to April), with a few
 earlier papers and 13 records without a parsed year.
 
 ## Columns

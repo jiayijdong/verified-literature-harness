@@ -11,9 +11,9 @@ from sklearn.linear_model import Ridge
 from sklearn.preprocessing import StandardScaler
 from transformers import AutoModel, AutoTokenizer
 
-from pscbench.data import DATA_DIR, load_processed, split_masks
-from pscbench.io import gpu_timer, save_predictions
-from pscbench.metrics import regression_metrics
+from discovery.data import DATA_DIR, load_processed, split_masks
+from discovery.io import gpu_timer, save_predictions
+from discovery.metrics import regression_metrics
 
 MODELS = {"llama8b": "meta-llama/Llama-3.1-8B-Instruct"}
 ALPHAS = np.logspace(0, 5, 11)

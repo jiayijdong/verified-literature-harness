@@ -1,4 +1,4 @@
-"""Device-record loading, PCE target, temporal split, and the model inputs.
+"""Reliability-scoped consumption of the harness records: loading, target, temporal split, model inputs.
 
 Every model in the benchmark sees only *recipe* fields (cell definition, device
 stack, synthesis, fabrication). Identifier/provenance fields and every J-V and
@@ -16,10 +16,10 @@ import pandas as pd
 
 REPO = Path(__file__).resolve().parents[1]
 DATA_DIR = REPO / "data"
-RECORDS_PATH = REPO / "dataset" / "psc_device_records.parquet"   # released records, shipped with the code
-RAW_PATH = DATA_DIR / "raw" / "psc_device_records.parquet"         # download target when PSC_DATA_URL is set
+RECORDS_PATH = REPO / "dataset" / "device_records.parquet"  # released records, shipped with the code
+RAW_PATH = DATA_DIR / "raw" / "device_records.parquet"        # download target when HARNESS_RECORDS_URL is set
 PROC_DIR = DATA_DIR / "processed"
-DATA_URL = os.environ.get("PSC_DATA_URL")                          # optional: read the records from elsewhere
+DATA_URL = os.environ.get("HARNESS_RECORDS_URL")              # optional: read the records from elsewhere
 
 TARGET_FIELD = "JV_measured_reverse_scan_PCE"
 PCE_RANGE = (0.0, 30.0)          # single-junction devices; drops tandem/garbled values

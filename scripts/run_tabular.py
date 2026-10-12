@@ -4,9 +4,9 @@ import argparse
 import lightgbm as lgb
 import numpy as np
 
-from pscbench.data import load_processed, split_masks
-from pscbench.io import gpu_timer, save_predictions
-from pscbench.metrics import regression_metrics
+from discovery.data import load_processed, split_masks
+from discovery.io import gpu_timer, save_predictions
+from discovery.metrics import regression_metrics
 
 LGBM_PARAMS = dict(n_estimators=5000, learning_rate=0.03, num_leaves=31, min_child_samples=20,
                    subsample=0.8, subsample_freq=1, colsample_bytree=0.8, verbose=-1)

@@ -3,7 +3,7 @@ import json
 
 import pandas as pd
 
-from pscbench.data import (PROC_DIR, REPO, all_field_features, build_records, input_fields,
+from discovery.data import (PROC_DIR, REPO, all_field_features, build_records, input_fields,
                           load_raw, paper_features, record_text)
 
 
